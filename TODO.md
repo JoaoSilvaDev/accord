@@ -2,10 +2,10 @@
 
 ## Phase 0: Project Setup
 
-- [ ] Create GitHub repository and push code
-- [ ] Create Railway project, link to GitHub repo
-- [ ] Configure Railway service for `client` (build + serve static)
-- [ ] Configure Railway service for `server` (Node.js)
+- [x] Create GitHub repository and push code
+- [x] Create Railway project, link to GitHub repo
+- [x] Configure Railway service for `client` (build + serve static)
+- [x] Configure Railway service for `server` (Node.js)
 - [ ] Enable Railway PR environments (preview URL per pull request)
 - [ ] Verify preview URLs are accessible on mobile
 - [ ] Set up environment variables on Railway (DB, auth secrets, etc.)
