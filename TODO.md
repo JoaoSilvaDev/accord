@@ -6,11 +6,6 @@
 - [x] Create Railway project, link to GitHub repo
 - [x] Configure Railway service for `client` (build + serve static)
 - [x] Configure Railway service for `server` (Node.js)
-- [ ] Enable Railway PR environments (preview URL per pull request)
-- [ ] Verify preview URLs are accessible on mobile
-- [ ] Set up environment variables on Railway (DB, auth secrets, etc.)
-- [ ] Configure custom domain (if applicable)
-- [ ] Set up CI: typecheck + build on every push
 
 ---
 

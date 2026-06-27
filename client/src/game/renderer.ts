@@ -2,6 +2,8 @@ import { Application, Text } from 'pixi.js'
 
 export class GameRenderer {
   protected app: Application
+  private initDone = false
+  private destroyPending = false
 
   constructor(container: HTMLElement) {
     this.app = new Application()
@@ -10,6 +12,11 @@ export class GameRenderer {
       backgroundColor: 0x111111,
       antialias: true,
     }).then(() => {
+      this.initDone = true
+      if (this.destroyPending) {
+        this.app.destroy(true)
+        return
+      }
       container.appendChild(this.app.canvas)
       this.onReady()
     })
@@ -27,6 +34,10 @@ export class GameRenderer {
   }
 
   destroy() {
-    this.app.destroy(true)
+    if (this.initDone) {
+      this.app.destroy(true)
+    } else {
+      this.destroyPending = true
+    }
   }
 }
