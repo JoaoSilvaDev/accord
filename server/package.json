@@ -1,0 +1,37 @@
+{
+  "name": "@accord/server",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc --noEmit && esbuild src/index.ts --bundle --platform=node --target=node22 --outfile=dist/index.js --external:pg-native",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@accord/shared": "*",
+    "@fastify/cookie": "^11.0.2",
+    "@fastify/cors": "^10.0.2",
+    "@fastify/rate-limit": "^11.0.0",
+    "@fastify/websocket": "^11.0.2",
+    "@lucia-auth/adapter-drizzle": "^1.1.0",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.38.3",
+    "fastify": "^5.2.1",
+    "lucia": "^3.2.2",
+    "node-cron": "^3.0.3",
+    "oslo": "^1.2.1",
+    "postgres": "^3.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/node-cron": "^3.0.11",
+    "drizzle-kit": "^0.30.1",
+    "esbuild": "^0.24.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
