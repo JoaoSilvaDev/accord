@@ -1,3 +1,16 @@
+// Map
+
+// 0=void, 1=plain, 2=neutral SC, 3=home SC p1, 4=home SC p2, 5=p3, 6=p4
+export type TileType = 0 | 1 | 2 | 3 | 4 | 5 | 6
+
+export interface MapData {
+  id: string
+  name: string
+  cols: number
+  rows: number
+  tiles: number[][] // [row][col]
+}
+
 // Player
 
 export interface Player {

@@ -1,2 +1,2 @@
-// Player
+// Map
 export {};

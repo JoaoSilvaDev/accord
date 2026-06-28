@@ -1,3 +1,11 @@
+export type TileType = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+export interface MapData {
+    id: string;
+    name: string;
+    cols: number;
+    rows: number;
+    tiles: number[][];
+}
 export interface Player {
     id: string;
     username: string | null;

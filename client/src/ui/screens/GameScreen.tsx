@@ -1,21 +1,26 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { GameRenderer } from '../../game/renderer.js'
+import { GameRenderer, type HexTapEvent } from '../../game/renderer.js'
 import { OrderPanel } from '../components/OrderPanel.js'
 import { NegotiatePanel } from '../components/NegotiatePanel.js'
 import { ResolutionOverlay } from '../components/ResolutionOverlay.js'
+import testMap from '@accord/shared/maps/test.json'
 
 export function GameScreen() {
   const navigate = useNavigate()
   const canvasRef = useRef<HTMLDivElement>(null)
-  const [orderTerritory, setOrderTerritory] = useState<string | null>(null)
+  const [selectedHex, setSelectedHex] = useState<HexTapEvent | null>(null)
   const [showNegotiate, setShowNegotiate] = useState(false)
   const [showResolution, setShowResolution] = useState(false)
   const [locked, setLocked] = useState(false)
 
   useEffect(() => {
     if (!canvasRef.current) return
-    const renderer = new GameRenderer(canvasRef.current)
+    const renderer = new GameRenderer(canvasRef.current, (hex) => {
+      setSelectedHex(hex)
+      setShowNegotiate(false)
+    })
+    renderer.loadMap(testMap)
     return () => renderer.destroy()
   }, [])
 
@@ -34,7 +39,7 @@ export function GameScreen() {
   return (
     <div style={s.container}>
       {/* Canvas */}
-      <div ref={canvasRef} style={s.canvas} onClick={() => setOrderTerritory('Territory A')} />
+      <div ref={canvasRef} style={s.canvas} />
 
       {/* Top bar */}
       <div style={s.topBar}>
@@ -65,8 +70,8 @@ export function GameScreen() {
       </div>
 
       {/* Panels */}
-      {orderTerritory && !showNegotiate && (
-        <OrderPanel territory={orderTerritory} onClose={() => setOrderTerritory(null)} />
+      {selectedHex && !showNegotiate && (
+        <OrderPanel territory={`${selectedHex.col},${selectedHex.row}`} onClose={() => setSelectedHex(null)} />
       )}
       {showNegotiate && (
         <NegotiatePanel onClose={() => setShowNegotiate(false)} />
