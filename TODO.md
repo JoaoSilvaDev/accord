@@ -13,22 +13,24 @@
 
 All screens from `SCREENS.md`. No game logic yet — just routing, layout, and static/mocked content.
 
-- [ ] Auth screen (sign in / register, error states)
-- [ ] Home screen (welcome, create game button, join by code, active games list)
-- [ ] Create Lobby modal (map picker, player slots, turn timer, win condition)
-- [ ] Lobby waiting room (lobby code, player list, start button, pre-game chat placeholder)
-- [ ] Game screen shell (map canvas placeholder, top/bottom bars, phase label, timer)
-- [ ] Order panel (slide-up on territory tap — static, no logic)
-- [ ] Negotiate panel (slide-in, player list, chat placeholder)
-- [ ] Resolution overlay (static, dismissible)
-- [ ] End screen (winner banner, ranking table, return to home)
-- [ ] Mobile pass: all tap targets ≥ 44px, panels slide from bottom, no horizontal scroll
+- [x] Auth screen (sign in / register, error states)
+- [x] Home screen (welcome, create game button, join by code, active games list)
+- [x] Create Lobby modal (map picker, player slots, turn timer, win condition)
+- [x] Lobby waiting room (lobby code, player list, start button, pre-game chat placeholder)
+- [x] Game screen shell (map canvas placeholder, top/bottom bars, phase label, timer)
+- [x] Order panel (slide-up on territory tap — static, no logic)
+- [x] Negotiate panel (slide-in, player list, chat placeholder)
+- [x] Resolution overlay (static, dismissible)
+- [x] End screen (winner banner, ranking table, return to home)
+- [x] Mobile pass: all tap targets ≥ 44px, panels slide from bottom, no horizontal scroll
 
 ---
 
 ## Phase 2: Game Core (Solo Sandbox)
 
 Playable locally by one person. No multiplayer yet.
+
+Map spec: flat-top hexes, JSON 2D array format, first test map 15×10.
 
 - [ ] Hex grid rendering (Pixi.js canvas, full viewport)
 - [ ] Map loader (parse hex map data: passable/impassable, SC locations, start positions)
@@ -91,6 +93,12 @@ Playable locally by one person. No multiplayer yet.
 - [ ] Completed games on Home screen (history)
 - [ ] Accessibility pass (contrast, font sizes, focus states)
 - [ ] Load test: 10 concurrent games
+
+---
+
+## Admin (post-v1)
+
+- [ ] Admin page (`/admin`, password protected) — user list, live games, DB overview
 
 ---
 
